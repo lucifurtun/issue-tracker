@@ -9,6 +9,7 @@ from django.views import generic
 
 class LoginView(AllAuthLoginView):
     template_name = 'authentication/login.html'
+    success_url = reverse_lazy('tracker:issue_list')
 
 
 class LogoutView(AllAuthLogoutView):

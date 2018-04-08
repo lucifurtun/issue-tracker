@@ -1,4 +1,6 @@
 from django.core.exceptions import PermissionDenied
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 class PermissionsMixin:
@@ -8,6 +10,9 @@ class PermissionsMixin:
         has_access = self.permission_func(request.user)
 
         if not has_access:
+            if not request.user.is_authenticated:
+                return HttpResponseRedirect(reverse('account_login'))
+
             raise PermissionDenied()
 
         return super().dispatch(request, *args, **kwargs)

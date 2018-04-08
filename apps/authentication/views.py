@@ -18,6 +18,7 @@ class LogoutView(AllAuthLogoutView):
 
 class SignUpView(AllAuthSignupView):
     template_name = 'authentication/signup.html'
+    success_url = reverse_lazy('tracker:issue_list')
 
 
 class Settings(generic.UpdateView):

@@ -7,7 +7,7 @@ from apps.tracker import models, access, mixins
 
 class IssueListView(mixins.PermissionsMixin, ListView):
     model = models.Issue
-    paginate_by = 2
+    paginate_by = 5
     permission_func = access.user_has_read_access
 
     def get_context_data(self, *args, **kwargs):

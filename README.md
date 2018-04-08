@@ -14,6 +14,9 @@ will choose manually every field of the issue, including `solver` and `submitter
 3. No listing rules were specified, so I assumed that the users that have the right to read issues, should see them all.
 4. It's not clear what "problem solving time" means, so I assumed it's the time that an issue spends it "In Progress",
 I called this field duration.
+5. I usually write some tests (unit tests, integration tests, even functional tests), but this time it was not required.
+6. I used the "classic" Django style (rendering HTML on the server) because it was faster, but in most of the cases
+I use django as a RESTful API server.
 
 
 ## Requirements (exactly as received):

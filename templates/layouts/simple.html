@@ -20,6 +20,13 @@
 <body>
 
 <div class="container">
+    {% if request.user.is_authenticated %}
+        <div class="pull-right" style="margin: 10px 0 10px 0">
+            <a href="{% url 'account_settings' %}" class="btn btn-warning">Settings</a>
+            <a href="{% url 'account_password' %}" class="btn btn-warning">Change Password</a>
+            <a href="{% url 'account_logout' %}" class="btn btn-warning">Logout</a>
+        </div>
+    {% endif %}
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default" style="margin-top: 25%;">

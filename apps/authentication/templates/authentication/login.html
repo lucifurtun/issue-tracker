@@ -1,0 +1,34 @@
+{% extends "layouts/simple.html" %}
+
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block content %}
+
+    <p>If you don't have an account, please
+        <a href="{% url 'account_signup' %}">sign up</a>.</p>
+
+    <div class="text-danger small">{{ form.non_field_errors|striptags }}</div>
+    {% for field in form %}
+        <div class="text-danger small">{{ field.errors|striptags }}</div>
+    {% endfor %}
+
+
+    <form class="login" method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.login|add_class:"form-control"|attr:"placeholder:E-mail" }}
+        </div>
+        <div class="form-group">
+            {{ form.password|add_class:"form-control"|attr:"placeholder:Password" }}
+        </div>
+
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <button class="btn btn-lg btn-success btn-block" type="submit">{% trans "Sign In" %}</button>
+    </form>
+
+{% endblock %}

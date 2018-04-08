@@ -1,4 +1,22 @@
-### Requirements (exactly as received):
+## Setup (Tested with python3.6)
+1. Clone the repo from: https://github.com/lucifurtun/issue-tracker.git
+2. `pip install -r requirements.txt`
+3. `python manage.py migrate`
+4. `python manage.py createsuperuser`
+5. `python manage.py runserver`
+
+
+## A few notes
+1. From the specs (I also explicitly asked) it doesn't seem to a exist the "normal" user role. So, a normal user
+doesn't have any permission regarding issues, it can only update it's on configuration.
+2. I didn't see any workflow for adding issues, so I assumed that the users that have the manipulate issues,
+will choose manually every field of the issue, including `solver` and `submitter`.
+3. No listing rules were specified, so I assumed that the users that have the right to read issues, should see them all.
+4. It's not clear what "problem solving time" means, so I assumed it's the time that an issue spends it "In Progress",
+I called this field duration.
+
+
+## Requirements (exactly as received):
 
 Design and implement a simple issue tracker in Django:
 - Issue has submitter, solver, text description, status, category (e.g. bug, enhancements, documentation)

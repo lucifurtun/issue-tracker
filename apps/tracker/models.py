@@ -10,7 +10,7 @@ class Issue(models.Model):
     title = models.CharField(max_length=250)
     description = models.TextField()
 
-    status = models.CharField(max_length=50, choices=choices.IssueStatuses.choices)
+    status = models.CharField(max_length=50, choices=choices.IssueStatuses.choices, default=choices.IssueStatuses.TO_DO)
     category = models.CharField(max_length=50, choices=choices.IssueCategories.choices)
     duration = models.DurationField(default=timedelta())
 
